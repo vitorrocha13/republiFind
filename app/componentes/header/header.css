@@ -1,0 +1,17 @@
+.container-header{
+    display: flex;
+    background-color: blue;
+    height: 12vh;
+}
+
+.container-img{
+    display: flex;
+    max-width: 35vw;
+    align-items: center;
+    margin-left: 1.5%;
+}
+
+.container-img img{
+    max-height: 90%;
+    object-fit: contain;
+}

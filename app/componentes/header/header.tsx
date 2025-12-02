@@ -1,13 +1,54 @@
+'use client';
+
+import Link from 'next/link';
 import './header.css'
 
-const Header = () => {
-    return(
+interface HeaderProps {
+    page: keyof typeof navbars;
+};
+
+const navbars = {
+    dashboard: [
+        {
+            text: (
+                <img src="/logout.png" width="20" style={{ marginRight: 8 }} />
+            ), href: '/landing'
+        },
+    ],
+    cadastro: [
+        { text: 'Home', href: '/landing' },
+        { text: 'Login', href: '/login' }
+    ],
+    login: [
+        { text: 'Home', href: '/' },
+        { text: 'Cadastro', href: '/cadastro' }
+    ],
+    landing: [
+        { text: 'Home', href: '/landing' },
+        { text: 'Sobre', href: '/landing/sobre' },
+        { text: 'Login', href: '/login' },
+        { text: 'Cadastro', href: '/cadastro' }
+    ]
+};
+
+const Header = ({ page }: HeaderProps) => {
+
+    const navbarAtual = navbars[page] || [];
+
+    return (
         <header className="container-header">
             <div className='container-img'>
-                <img src="RepubliFind.png" alt="" />
+                <img src="RepubliFind.png" alt="Logo RepubliFind" />
             </div>
-            
-            <h1></h1>
+            <nav className='container-nav'>
+                <ul>
+                    {navbarAtual.map((item) => (
+                        <li key={item.href}>
+                            <Link href={item.href}>{item.text}</Link>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
         </header>
     )
 }

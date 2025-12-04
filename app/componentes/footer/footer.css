@@ -1,3 +1,7 @@
 footer{
-    background-color: #a0cc85;
+    background-color: #6E6E6E;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

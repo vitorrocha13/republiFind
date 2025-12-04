@@ -1,0 +1,78 @@
+.container-form{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-moradia{
+    height: 80%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    background-color: #6E6E6E;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 6px 10px rgba(0,0,0,0.18),
+        0 12px 22px rgba(0,0,0,0.22),
+        0 18px 40px rgba(0,0,0,0.25);
+}
+
+.container-texto{
+    width: 50%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+.container-label{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 80%;
+}
+
+.container-label input{
+    background-color: white;
+    border-radius: 14px;
+    padding-left: 20px;
+}
+
+.container-texto h1{
+    margin: 20px;
+    width: 80%;
+    font-size: 32px;    
+}
+
+.container-mapa{
+    width: 50%;
+    flex: 1;
+}
+
+.container-texto button{
+    background-color: #BAFF39;
+    margin-top: 30px;
+    padding: 6px;
+    border-radius: 14px;
+    cursor: pointer;
+    width: 80%;
+}
+
+
+
+@media (max-width: 900px) {
+    .form-moradia {
+        flex-direction: column; 
+    }
+
+    .container-texto,
+    .container-mapa {
+        width: 100%;
+
+    }
+}

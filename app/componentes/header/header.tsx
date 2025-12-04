@@ -16,18 +16,18 @@ const navbars = {
         },
     ],
     cadastro: [
-        { text: 'Home', href: '/landing' },
-        { text: 'Login', href: '/login' }
+        { text: 'HOME', href: '/landing' },
+        { text: 'LOGIN', href: '/login' }
     ],
     login: [
-        { text: 'Home', href: '/' },
-        { text: 'Cadastro', href: '/cadastro' }
+        { text: 'HOME', href: '/' },
+        { text: 'CADASTRO', href: '/cadastro' }
     ],
     landing: [
-        { text: 'Home', href: '/landing' },
-        { text: 'Sobre', href: '/landing/sobre' },
-        { text: 'Login', href: '/login' },
-        { text: 'Cadastro', href: '/cadastro' }
+        { text: 'HOME', href: '/' },
+        { text: 'SOBRE', href: '/#container-sobre' },
+        { text: 'LOGIN', href: '/login' },
+        { text: 'CADASTRO', href: '/cadastro' }
     ]
 };
 

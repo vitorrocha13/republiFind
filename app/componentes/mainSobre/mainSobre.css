@@ -1,0 +1,17 @@
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+#container-sobre{
+    padding: 60px;
+}
+
+#container-sobre h2{
+    font-size: 32px;
+}
+
+#container-sobre p{
+    margin-top: 60px;
+    text-align: justify;
+}

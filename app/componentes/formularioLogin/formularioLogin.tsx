@@ -1,13 +1,19 @@
-import 'formularioLogin.css'
+import './formularioLogin.css'
 
 const FormularioLogin = () => {
     return(
-        <main>
-            <form>
-                <label htmlFor="">Email</label>
-                <input type="text"/>
-                <label htmlFor="">Senha</label>
-                <input type="text" />
+        <main className='container-main'>
+            <form className='container-form'>
+                <p>LOGIN</p>
+                <div className='container-lable'>
+                    <label htmlFor="">EMAIL</label>
+                    <input type="text"/>
+                </div>
+                <div className='container-lable'>
+                    <label htmlFor="">SENHA</label>
+                    <input type="text" />
+                </div>
+                <button>ENTRAR</button>
             </form>
         </main>
     )

@@ -1,12 +1,12 @@
-import './mainSobre.css'
+import styles from './mainSobre.module.css'
 
 const MainSobre = () => {
     return (
-        <main>
-            <div className='container-main'>
+        <main className={styles['main']}>
+            <div className={styles['container-main']}>
                 <img src="./nanoBanana.png" alt="" />
             </div>
-            <div id='container-sobre'>
+            <div id='container-sobre' className={styles['secao-sobre']}>
                 <h2>SOBRE NOS</h2>
                 <p>A chegada à universidade marca o início de uma jornada transformadora, repleta de aprendizados, autonomia e novas responsabilidades. Entre os muitos desafios que acompanham essa transição, encontrar uma moradia adequada destaca-se como uma das tarefas mais críticas e, frequentemente, mais estressantes para qualquer calouro. É neste contexto que surge o RepubliFind — uma plataforma digital desenvolvida especificamente para simplificar e humanizar a busca por moradias estudantis, transformando um processo tradicionalmente caótico e incerto em uma experiência organizada, segura e transparente.<br /><br />
 

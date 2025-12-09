@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import './header.css'
+import styles from './header.module.css' // Importação alterada para Módulo CSS
 import BotaoLogout from '../botaoLogout/botaoLogout';
 
 interface HeaderProps {
@@ -33,11 +33,14 @@ const Header = ({ page }: HeaderProps) => {
     const navbarAtual = navbars[page] || [];
 
     return (
-        <header className="container-header">
-            <div className='container-img'>
+        // className alterado para styles['container-header']
+        <header className={styles['container-header']}>
+            {/* className alterado para styles['container-img'] */}
+            <div className={styles['container-img']}>
                 <img src="RepubliFind.png" alt="Logo RepubliFind" />
             </div>
-            <nav className='container-nav'>
+            {/* className alterado para styles['container-nav'] */}
+            <nav className={styles['container-nav']}>
                 <ul>
                     {navbarAtual.map((item) => (
                         <li key={item.href}>

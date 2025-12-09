@@ -1,6 +1,6 @@
 'use client'
 
-import './formularioCadastro.css'
+import styles from './formularioCadastro.module.css' // Importação alterada para Módulo CSS
 import { z } from 'zod'
 import toast from 'react-hot-toast'
 import { LoginCredentials } from "@/app/libs/credenciais"
@@ -50,21 +50,26 @@ const FormularioCadastro = () => {
     }
 
     return (
-        <main className='container-main'>
-            <form action={criarUsuario} className='container-form'>
+        // className alterado para styles['container-main']
+        <main className={styles['container-main']}>
+            {/* className alterado para styles['container-form'] */}
+            <form action={criarUsuario} className={styles['container-form']}>
                 <p>CADASTRO</p>
 
-                <div className='container-label'>
+                {/* className alterado para styles['container-label'] */}
+                <div className={styles['container-label']}>
                     <label>EMAIL</label>
                     <input type="email" name="email" id="email" />
                 </div>
 
-                <div className='container-label'>
+                {/* className alterado para styles['container-label'] */}
+                <div className={styles['container-label']}>
                     <label>SENHA</label>
                     <input type="password" name="password" id="password" />
                 </div>
 
-                <div className='container-label'>
+                {/* className alterado para styles['container-label'] */}
+                <div className={styles['container-label']}>
                     <label>CONFIRMAR SENHA</label>
                     <input type="password" name="conf-password" id="conf-password" />
                 </div>

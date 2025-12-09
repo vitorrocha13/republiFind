@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import './header.css'
+import BotaoLogout from '../botaoLogout/botaoLogout';
 
 interface HeaderProps {
     page: keyof typeof navbars;
@@ -9,14 +10,10 @@ interface HeaderProps {
 
 const navbars = {
     dashboard: [
-        {
-            text: (
-                <img src="/logout.png" width="20" style={{ marginRight: 8 }} />
-            ), href: '/landing'
-        },
+
     ],
     cadastro: [
-        { text: 'HOME', href: '/landing' },
+        { text: 'HOME', href: '/' },
         { text: 'LOGIN', href: '/login' }
     ],
     login: [
@@ -47,6 +44,11 @@ const Header = ({ page }: HeaderProps) => {
                             <Link href={item.href}>{item.text}</Link>
                         </li>
                     ))}
+                    {page === 'dashboard' && (
+                        <li>
+                            <BotaoLogout></BotaoLogout>
+                        </li>
+                    )}
                 </ul>
             </nav>
         </header>

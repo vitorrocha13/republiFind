@@ -1,0 +1,24 @@
+import {promises as fs} from 'fs';
+import path from "path";
+
+async function retornaBD(arquivo: string): Promise<Array<any>>
+{
+    const dbPath = path.join(process.cwd(),'app', 'banco',arquivo);
+    const dados = await fs.readFile(dbPath,'utf-8');
+    
+    return JSON.parse(dados);
+}
+
+async function armazenaBD(arquivo: string, dados: any)
+{
+    console.log(">>> Gravando no JSON:", dados);
+    const dbPath = path.join(process.cwd(), 'app', 'banco',arquivo);
+    await fs.writeFile(dbPath, JSON.stringify(dados,null,2));
+}
+
+const ConexaoBD = {
+    retornaBD,
+    armazenaBD
+}
+
+export default ConexaoBD;

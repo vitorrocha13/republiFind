@@ -43,5 +43,10 @@
     "id": "8e115293-3f77-4140-b68b-4882d9081b5c",
     "email": "login@gmail.com",
     "password": "$2b$10$pah0TOj57LSduFLTT.btMOfbJ4pnrkjRwCMs8j7qaHUVpAkNXDZPi"
+  },
+  {
+    "id": "3333bf53-3191-4494-a206-06a554907776",
+    "email": "luana@gmail.com",
+    "password": "$2b$10$pSFFLOJIdLdaHpfYjriSw.DAVU/lGMNQcL678fn5bTIrB/.rq9Gpm"
   }
 ]

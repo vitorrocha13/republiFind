@@ -49,7 +49,6 @@ const FormularioMoradia = () => {
                 </div>
                 
                 <div className={styles['container-mapa']}>
-                    <Mapa></Mapa>
                 </div>
             </form>
         </div>

@@ -7,6 +7,8 @@
     background-color: #6E6E6E;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     margin-bottom: 1.5rem;
+    height: 500px;
+
 }
 
 .p-descricao {
@@ -39,5 +41,21 @@
 }
 
 .container-mapa{
-    height: 400px;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-delete{
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-edit{
+    background-color: #BAFF39;
+    padding: 6px;
+    border-radius: 8px;
 }

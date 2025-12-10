@@ -2,8 +2,8 @@ import style from './cardMoradia.module.css'
 import ConexaoBD from '@/app/libs/conexaoBD'
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import Mapa from '@/app/componentes/mapa/mapa';
-
+import MapaWrapper from './mapaWrapper';
+import { enderecoParaCoordenadas } from '@/app/libs/geocoding';
 
 const bd: string = 'moradias.json';
 
@@ -14,7 +14,15 @@ export interface MoradiaProps {
     id: string,
 }
 
-const CardMoradia = (props: MoradiaProps) => {
+const CardMoradia = async (props: MoradiaProps) => {
+    // Busca as coordenadas do endereço no servidor
+    let coordenadas = null;
+    try {
+        coordenadas = await enderecoParaCoordenadas(props.endereco);
+    } catch (error) {
+        console.error('Erro ao buscar coordenadas:', error);
+    }
+
     const deletarMoradia = async () => {
         'use server';
         const moradias = await ConexaoBD.retornaBD(bd);
@@ -28,7 +36,6 @@ const CardMoradia = (props: MoradiaProps) => {
         redirect('/dashboard');
     }
 
-
     return (
         <div className={style["container-card"]}>
             <div className={style['container-texto']}>
@@ -36,17 +43,18 @@ const CardMoradia = (props: MoradiaProps) => {
                 <p>{props.endereco}</p>
                 <p className={style['p-descricao']}>{props.descricao}</p>
                 <div className={style["container-botoes"]}>
-                    <Link href={`/dashboard/editarMoradia/${props.id}`} id="btn-edit">Editar</Link>
+                    <Link href={`/dashboard/editarMoradia/${props.id}`} id="btn-edit" className={style['btn-edit']}>Editar</Link>
                     <form action={deletarMoradia}>
-                        <button id="btn-delete">Deletar</button>
+                        <button id="btn-delete" className={style['btn-delete']}>Deletar</button>
                     </form>
                 </div>
             </div>
             <div className={style['container-mapa']}>
-
+                <MapaWrapper 
+                    coordenadas={coordenadas ? [coordenadas.lat, coordenadas.lng] : null}
+                    endereco={props.endereco}
+                />
             </div>
-
-
         </div>
     )
 }

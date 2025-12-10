@@ -2,11 +2,10 @@
 
 import { redirect } from "next/navigation";
 import ConexaoBD from "./conexaoBD";
-
-import bcrypt from 'bcrypt'; //Para criptografar a senha. npm i bcrypt
+import bcrypt from 'bcrypt';
 import { createSessionToken } from "./session";
 
-const userDBFile = 'usuariosBanco.json';
+const usuarioBanco = 'usuariosBanco.json';
 
 export type LoginCredentials = {
   email: string
@@ -26,7 +25,7 @@ export const criarUsuarioBack = async (data: LoginCredentials) => {
         password: passwordCrypt
     }
 
-    const users = await ConexaoBD.retornaBD(userDBFile);
+    const users = await ConexaoBD.retornaBD(usuarioBanco);
 
     for(const user of users)
     {
@@ -35,7 +34,7 @@ export const criarUsuarioBack = async (data: LoginCredentials) => {
         }
     }
     users.push(novoUser);
-    ConexaoBD.armazenaBD(userDBFile,users);
+    ConexaoBD.armazenaBD(usuarioBanco,users);
     return {success: 'Usuário Criado com Sucesso'}
 
 }
@@ -45,7 +44,7 @@ export const validateCredentials = async (data: LoginCredentials) => {
     const email = data.email;
     const password = data.password;
 
-    const usuariosDB = await ConexaoBD.retornaBD(userDBFile);
+    const usuariosDB = await ConexaoBD.retornaBD(usuarioBanco);
 
     const user = usuariosDB.find(user => user.email === email);
 

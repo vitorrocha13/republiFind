@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './formularioLogin.module.css'; // Importação alterada para Módulo CSS
+import styles from './formularioLogin.module.css';
 import { z } from 'zod';
 import { LoginCredentials } from "@/app/libs/credenciais";
 import { validateCredentials } from '@/app/libs/credenciais';
@@ -35,7 +35,6 @@ const FormularioLogin = () => {
             return;
         }
 
-
         const loginValidacao = await validateCredentials(dadosLogin);
 
         if (loginValidacao) {
@@ -46,19 +45,13 @@ const FormularioLogin = () => {
     }
 
     return (
-        // className alterado para styles['container-main']
         <main className={styles['container-main']}>
-            {/* className alterado para styles['container-form'] */}
             <form action={realizarLogin} className={styles['container-form']}>
                 <p>LOGIN</p>
-                {/* ATENÇÃO: Verifique a classe 'container-lable' no seu CSS, 
-                    pois provavelmente deveria ser 'container-label' (com 'e') */}
-                {/* className alterado para styles['container-lable'] */}
                 <div className={styles['container-lable']}>
                     <label htmlFor="">EMAIL</label>
                     <input type="email" name='email' id='email' />
                 </div>
-                {/* className alterado para styles['container-lable'] */}
                 <div className={styles['container-lable']}>
                     <label htmlFor="">SENHA</label>
                     <input type="password" name='password' id='password' />

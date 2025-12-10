@@ -33,13 +33,10 @@ const Header = ({ page }: HeaderProps) => {
     const navbarAtual = navbars[page] || [];
 
     return (
-        // className alterado para styles['container-header']
         <header className={styles['container-header']}>
-            {/* className alterado para styles['container-img'] */}
             <div className={styles['container-img']}>
                 <img src="/RepubliFind.png" alt="Logo RepubliFind" />
             </div>
-            {/* className alterado para styles['container-nav'] */}
             <nav className={styles['container-nav']}>
                 <ul>
                     {navbarAtual.map((item) => (

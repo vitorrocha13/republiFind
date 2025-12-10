@@ -3,7 +3,6 @@
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
-// Importa o Mapa dinamicamente para evitar erros de SSR
 const Mapa = dynamic(() => import('@/app/componentes/mapa/mapa'), {
     ssr: false,
     loading: () => <div style={{ 

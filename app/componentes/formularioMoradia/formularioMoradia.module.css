@@ -59,10 +59,6 @@
     font-size: 32px;
 }
 
-.container-mapa {
-    width: 50%;
-    flex: 1;
-}
 
 .container-texto button {
     background-color: #BAFF39;
@@ -71,18 +67,4 @@
     border-radius: 14px;
     cursor: pointer;
     width: 80%;
-}
-
-
-
-@media (max-width: 900px) {
-    .form-moradia {
-        flex-direction: column;
-    }
-
-    .container-texto,
-    .container-mapa {
-        width: 100%;
-
-    }
 }

@@ -47,9 +47,6 @@ const FormularioMoradia = () => {
                     </div>
                     <button className={styles['btn-cadastrar']}>CADASTRAR</button>
                 </div>
-                
-                <div className={styles['container-mapa']}>
-                </div>
             </form>
         </div>
     );

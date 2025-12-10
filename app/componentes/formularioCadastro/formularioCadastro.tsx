@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './formularioCadastro.module.css' // Importação alterada para Módulo CSS
+import styles from './formularioCadastro.module.css'
 import { z } from 'zod'
 import toast from 'react-hot-toast'
 import { LoginCredentials } from "@/app/libs/credenciais"
@@ -63,7 +63,7 @@ const FormularioCadastro = () => {
                     <label>SENHA</label>
                     <input type="password" name="password" id="password" />
                 </div>
-                
+
                 <div className={styles['container-label']}>
                     <label>CONFIRMAR SENHA</label>
                     <input type="password" name="conf-password" id="conf-password" />

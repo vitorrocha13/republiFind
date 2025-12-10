@@ -1,13 +1,12 @@
-export const enderecoParaCoordenadas = async (endereco: string) => {
+const enderecoParaCordenadas = async (endereco: string) => {
   try {
     const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`;
     
     const res = await fetch(url, {
       headers: {
-        'User-Agent': 'MoradiasUniversitarias/1.0', // Nominatim requer User-Agent
+        'User-Agent': 'MoradiasUniversitarias/1.0',
       },
-      // Configurações para Next.js
-      next: { revalidate: 3600 }, // Cache por 1 hora
+      next: { revalidate: 3600 },
     });
 
     if (!res.ok) {
@@ -29,3 +28,5 @@ export const enderecoParaCoordenadas = async (endereco: string) => {
     return null;
   }
 };
+
+export default enderecoParaCordenadas

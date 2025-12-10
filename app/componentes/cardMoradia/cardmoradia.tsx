@@ -3,7 +3,7 @@ import ConexaoBD from '@/app/libs/conexaoBD'
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import MapaWrapper from './mapaWrapper';
-import { enderecoParaCoordenadas } from '@/app/libs/geocoding';
+import enderecoParaCordenadas from '@/app/libs/geocoding';
 
 const bd: string = 'moradias.json';
 
@@ -15,10 +15,9 @@ export interface MoradiaProps {
 }
 
 const CardMoradia = async (props: MoradiaProps) => {
-    // Busca as coordenadas do endereço no servidor
     let coordenadas = null;
     try {
-        coordenadas = await enderecoParaCoordenadas(props.endereco);
+        coordenadas = await enderecoParaCordenadas(props.endereco);
     } catch (error) {
         console.error('Erro ao buscar coordenadas:', error);
     }

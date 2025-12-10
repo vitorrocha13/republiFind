@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏠 RepubliFind
 
-## Getting Started
+Plataforma para castro de moradias estudantis
 
-First, run the development server:
+Tecnologias utilizadas:
+Frontend: Next.js com React (TypeScript)
+Backend: Next.js API Routes
+Autenticação: JWT tokens com biblioteca jose
+Segurança: Bcrypt para hash de senhas
+Validação: Zod para schemas e validação de formulários no client
+UI/UX: CSS Modules, React Hot Toast para notificações
+Mapas: Leaflet + OpenStreetMap (geocoding via Nominatim)
+Persistência: JSON como "banco de dados" (arquivos locais)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Para inicializar o projeto é necessario clonar o repositorio do github e instalar as seguintes dependencias:
+npm i
+npm i zod
+npm i react-hot-toast
+npm i bcrypt
+npm i jose
+npm i leaflet react-leaflet
+npm i --save-dev @types/leaflet
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+É necessario tambem configurar a variavel de ambiente. Crie o arquivo ".env.local" na raiz do projeto, execute o seguinte trecho no terminal:
+# Crie o arquivo .env.local na raiz do projeto
+# Execute para gerar uma chave segura:
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Adicione ao .env.local:
+JWT_SECRET=sua_chave_gerada_aqui
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 📸 Screenshots
+### Landing page
+![Landing page](public/landing.png)
 
-To learn more about Next.js, take a look at the following resources:
+### Tela de cadastro
+![Formulário de cadastro](public/cadastro.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Dashboard
+![Dashboard do Usuário](public/dashboard.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+integrante: Vitor Rocha Mininel https://github.com/vitorrocha13

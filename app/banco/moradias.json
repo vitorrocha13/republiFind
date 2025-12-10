@@ -1,0 +1,32 @@
+[
+  {
+    "id": "88888549851419551951",
+    "nome": "Republica VamoEt",
+    "endereco": "Rua coronel francisco braz, 1255, Itajuba",
+    "descricao": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus nam quo cum voluptatem non. Ea rerum esse nisi excepturi eos aliquam, odit iure voluptatibus explicabo quaerat earum nulla doloribus mollitia harum consectetur, eligendi sint, voluptate autem. Impedit, quibusdam distinctio fugit eius, nisi ut, vero animi rem quod qui ab laborum!</p>"
+  },
+  {
+    "nome": "Pensão para Moças",
+    "endereco": "Rua Coronel francisco braz 1220, Itajuba",
+    "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus nam quo cum voluptatem non. Ea rerum esse nisi excepturi eos aliquam, odit iure voluptatibus explicabo quaerat earum nulla doloribus mollitia harum consectetur, eligendi sint, voluptate autem. Impedit, quibusdam distinctio fugit eius, nisi ut, vero animi rem quod qui ab laborum",
+    "id": "8484918181181981"
+  },
+  {
+    "id": "f92f0493-7153-40a5-a5c8-9051bf3b0dce",
+    "nome": "Apt. Santa Maria",
+    "endereco": "Rua Simão Maud, 972, Pinheirinho, Itajuba",
+    "descricao": "Ah, entendi! Isso acontece quando o formulário envia os dados, mas o backend (ou a função que salva no JSON) não está pegando os valores corretamente. No seu caso, provavelmente você está usando um form HTML e o action={deletarMoradia} ou algo do tipo, certo?"
+  },
+  {
+    "nome": "Rep Tapetinho",
+    "endereco": "Rua Antonino Rosa Junior, 272, CABELINHA, LORENA, SÃO PAULO",
+    "descricao": "Claro, aqui estão seis linhas sobre um tópico aleatório e interessante: a comunicação das árvores.  As árvores, longe de serem seres passivos, mantêm vastas redes de comunicação subterrânea . Elas utilizam uma simbiose com fungos — a rede micorrízica — para trocar nutrientes essenciais e água. Além disso, quando uma árvore é atacada por insetos, ela pode liberar sinais químicos voláteis. Esses sinais alertam as árvores vizinhas do perigo. Em resposta, as árvores vizinhas aumentam sua produção de taninos defensivos, preparando-se para o ataque antes mesmo de ele chegar.",
+    "id": "503fc94a-bb40-4b15-8f5b-a1e56434aa82"
+  },
+  {
+    "nome": "Minha casa",
+    "endereco": "rua antonino rosa junior, lorena",
+    "descricao": "Claro, aqui estão seis linhas sobre um tópico aleatório e interessante: a comunicação das árvores.  As árvores, longe de serem seres passivos, mantêm vastas redes de comunicação subterrânea . Elas utilizam uma simbiose com fungos — a rede micorrízica — para trocar nutrientes essenciais e água. Além disso, quando uma árvore é atacada por insetos, ela pode liberar sinais químicos voláteis. Esses sinais alertam as árvores vizinhas do perigo. Em resposta, as árvores vizinhas aumentam sua produção de taninos defensivos, preparando-se para o ataque antes mesmo de ele chegar.",
+    "id": "f2e614b7-a06a-422f-b38c-748f3dc47c7e"
+  }
+]

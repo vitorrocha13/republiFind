@@ -50,25 +50,20 @@ const FormularioCadastro = () => {
     }
 
     return (
-        // className alterado para styles['container-main']
         <main className={styles['container-main']}>
-            {/* className alterado para styles['container-form'] */}
             <form action={criarUsuario} className={styles['container-form']}>
                 <p>CADASTRO</p>
 
-                {/* className alterado para styles['container-label'] */}
                 <div className={styles['container-label']}>
                     <label>EMAIL</label>
                     <input type="email" name="email" id="email" />
                 </div>
 
-                {/* className alterado para styles['container-label'] */}
                 <div className={styles['container-label']}>
                     <label>SENHA</label>
                     <input type="password" name="password" id="password" />
                 </div>
-
-                {/* className alterado para styles['container-label'] */}
+                
                 <div className={styles['container-label']}>
                     <label>CONFIRMAR SENHA</label>
                     <input type="password" name="conf-password" id="conf-password" />

@@ -1,0 +1,43 @@
+.container-card {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #6E6E6E;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.p-descricao {
+    font-size: 18px;
+    width: 36vw;
+    height: 40vh;
+}
+
+
+.container-texto {
+    margin-right: 20px;
+}
+
+.container-texto h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 38px;
+}
+
+.container-texto p {
+    margin: 0.3rem 0;
+    text-align: justify;
+}
+
+.container-botoes {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    
+}
+
+.container-mapa{
+    height: 400px;
+}

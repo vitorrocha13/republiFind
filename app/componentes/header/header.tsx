@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import styles from './header.module.css' // Importação alterada para Módulo CSS
+import styles from './header.module.css';
 import BotaoLogout from '../botaoLogout/botaoLogout';
 
 interface HeaderProps {
@@ -37,7 +37,7 @@ const Header = ({ page }: HeaderProps) => {
         <header className={styles['container-header']}>
             {/* className alterado para styles['container-img'] */}
             <div className={styles['container-img']}>
-                <img src="RepubliFind.png" alt="Logo RepubliFind" />
+                <img src="/RepubliFind.png" alt="Logo RepubliFind" />
             </div>
             {/* className alterado para styles['container-nav'] */}
             <nav className={styles['container-nav']}>

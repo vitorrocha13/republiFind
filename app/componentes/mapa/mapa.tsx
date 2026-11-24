@@ -24,9 +24,11 @@ const Mapa: React.FC<MapaProps> = ({
         // Se o mapa já existe, não faz nada
         if (mapRef.current || !containerRef.current) return;
 
-        // Verifica se o container já tem um mapa inicializado
-        const container = containerRef.current;
-        if ((container as any)._leaflet_id) {
+        // Verifica se o container já tem um mapa inicializado.
+        // O Leaflet remove o "_leaflet_id" no map.remove(), mas mantém a classe
+        // "leaflet-container" — por isso a checagem precisa ser pelo id.
+        const container = containerRef.current as HTMLDivElement & { _leaflet_id?: number };
+        if (container._leaflet_id) {
             return;
         }
 
@@ -61,6 +63,8 @@ const Mapa: React.FC<MapaProps> = ({
                 markerRef.current = null;
             }
         };
+    // A inicialização é única; mudanças de coordenadas são tratadas no efeito abaixo.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); // Array vazio = roda apenas na montagem
 
     // Atualização de coordenadas (quando mudam)

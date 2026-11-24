@@ -1,16 +1,19 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './header.module.css';
 import BotaoLogout from '../botaoLogout/botaoLogout';
 
 interface HeaderProps {
     page: keyof typeof navbars;
+    logado?: boolean;
 };
 
 const navbars = {
     dashboard: [
-
+        { text: 'MORADIAS DISPONÍVEIS', href: '/#moradias-disponiveis' },
+        { text: 'CADASTRAR MORADIA', href: '/dashboard/cadastrarMoradia' }
     ],
     cadastro: [
         { text: 'HOME', href: '/' },
@@ -22,20 +25,32 @@ const navbars = {
     ],
     landing: [
         { text: 'HOME', href: '/' },
+        { text: 'MORADIAS DISPONÍVEIS', href: '/#moradias-disponiveis' },
         { text: 'SOBRE', href: '/#container-sobre' },
         { text: 'LOGIN', href: '/login' },
         { text: 'CADASTRO', href: '/cadastro' }
     ]
 };
 
-const Header = ({ page }: HeaderProps) => {
+const landingLogado = [
+    { text: 'HOME', href: '/' },
+    { text: 'MORADIAS DISPONÍVEIS', href: '/#moradias-disponiveis' },
+    { text: 'SOBRE', href: '/#container-sobre' },
+    { text: 'MEU PAINEL', href: '/dashboard' }
+];
 
-    const navbarAtual = navbars[page] || [];
+const Header = ({ page, logado = false }: HeaderProps) => {
+
+    const navbarAtual = page === 'landing' && logado
+        ? landingLogado
+        : (navbars[page] || []);
+
+    const mostrarLogout = page === 'dashboard' || (page === 'landing' && logado);
 
     return (
         <header className={styles['container-header']}>
             <div className={styles['container-img']}>
-                <img src="/RepubliFind.png" alt="Logo RepubliFind" />
+                <Image src="/RepubliFind.png" alt="Logo RepubliFind" width={263} height={67} />
             </div>
             <nav className={styles['container-nav']}>
                 <ul>
@@ -44,7 +59,7 @@ const Header = ({ page }: HeaderProps) => {
                             <Link href={item.href}>{item.text}</Link>
                         </li>
                     ))}
-                    {page === 'dashboard' && (
+                    {mostrarLogout && (
                         <li>
                             <BotaoLogout></BotaoLogout>
                         </li>
@@ -55,4 +70,4 @@ const Header = ({ page }: HeaderProps) => {
     )
 }
 
-export default Header
+export default Header;

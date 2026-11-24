@@ -1,31 +1,47 @@
 import Header from '@/app/componentes/header/header'
 import Footer from '@/app/componentes/footer/footer'
-import ConexaoBD from '@/app/libs/conexaoBD';
 import CardMoradia from '@/app/componentes/cardMoradia/cardmoradia'
-import Link from "next/link";
+import { redirect } from 'next/navigation';
+import { listarMoradiasDoUsuario } from '@/app/libs/moradias';
+import { getUsuarioIdLogado } from '@/app/libs/session';
 import styles from "./dashboard.module.css"
-
-const bd: string = 'moradias.json';
 
 const PaginaDashboard = async () => {
 
-    const dados = await ConexaoBD.retornaBD(bd);
-    const moradias = dados.map((moradia) => {
-        return <CardMoradia {...moradia} key={moradia.id} />
-    });
+    const usuarioId = await getUsuarioIdLogado();
+
+    if (!usuarioId) {
+        redirect('/login');
+    }
+
+    const moradias = await listarMoradiasDoUsuario(usuarioId);
 
     return (
         <>
             <Header page='dashboard'></Header>
             <main className={styles['main']}>
-                <Link href={'/dashboard/cadastrarMoradia'} className={styles['btn-cadastrar']}>CADASTRAR MORADIA</Link>
-                <div className={styles['container-cards']}>
-                    {moradias}
-                </div>
+                {moradias.length === 0 ? (
+                    <p className={styles['aviso']}>Você ainda não cadastrou nenhuma moradia.</p>
+                ) : (
+                    <div className={styles['container-cards']}>
+                        {moradias.map((moradia) => (
+                            <CardMoradia
+                                key={moradia.id}
+                                id={moradia.id}
+                                nome={moradia.nome}
+                                endereco={moradia.endereco}
+                                descricao={moradia.descricao}
+                                proprietarioEmail={moradia.proprietarioEmail}
+                                disponivel={moradia.disponivel}
+                                podeEditar
+                            />
+                        ))}
+                    </div>
+                )}
             </main>
             <Footer></Footer>
         </>
     )
 }
 
-export default PaginaDashboard
+export default PaginaDashboard;

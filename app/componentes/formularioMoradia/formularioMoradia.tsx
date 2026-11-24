@@ -1,26 +1,35 @@
-import styles from './formularioMoradia.module.css' 
-import ConexaoBD from '@/app/libs/conexaoBD'
-import { MoradiaProps } from '../cardMoradia/cardmoradia';
+import styles from './formularioMoradia.module.css'
 import { redirect } from "next/navigation";
-import Mapa from '@/app/componentes/mapa/mapa'
-
-const arquivo = 'moradias.json';
+import { revalidatePath } from 'next/cache';
+import { criarMoradia } from '@/app/libs/moradias';
+import { getUsuarioIdLogado } from '@/app/libs/session';
 
 const FormularioMoradia = () => {
 
     const adicionarMoradia = async (formData: FormData) => {
         "use server";
 
-        const moradia : MoradiaProps = {
-            nome: formData.get('nome') as string,
-            endereco : formData.get('endereco') as string,
-            descricao : formData.get('descricao') as string,
-            id: crypto.randomUUID()
+        const usuarioId = await getUsuarioIdLogado();
+
+        if (!usuarioId) {
+            redirect('/login');
         }
 
-        const moradiasBanco = await ConexaoBD.retornaBD(arquivo);
-        moradiasBanco.push(moradia);
-        await ConexaoBD.armazenaBD(arquivo,moradiasBanco);
+        const moradia = {
+            nome: (formData.get('nome') as string ?? '').trim(),
+            endereco: (formData.get('endereco') as string ?? '').trim(),
+            descricao: (formData.get('descricao') as string ?? '').trim(),
+        }
+
+        await criarMoradia({
+            usuarioId,
+            nome: moradia.nome,
+            endereco: moradia.endereco,
+            descricao: moradia.descricao,
+        });
+
+        revalidatePath('/dashboard');
+        revalidatePath('/');
         redirect('/dashboard');
     }
 
@@ -33,17 +42,17 @@ const FormularioMoradia = () => {
 
                     <div className={styles['container-label']}>
                         <label>NOME DA MORADIA</label>
-                        <input type='text' name='nome' id='nome'></input>
+                        <input type='text' name='nome' id='nome' required></input>
                     </div>
 
                     <div className={styles['container-label']}>
                         <label>ENDEREÇO</label>
-                        <input type='text' name='endereco' id='endereco'></input>
+                        <input type='text' name='endereco' id='endereco' required></input>
                     </div>
 
                     <div className={styles['container-label']}>
                         <label>DESCRIÇÃO</label>
-                        <input type='text' name='descricao' id='descricao' className={styles['input-descricao']}></input>
+                        <textarea name='descricao' id='descricao' className={styles['input-descricao']} required></textarea>
                     </div>
                     <button className={styles['btn-cadastrar']}>CADASTRAR</button>
                 </div>

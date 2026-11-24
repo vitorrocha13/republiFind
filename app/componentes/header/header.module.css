@@ -7,13 +7,15 @@
 
 .container-img{
     display: flex;
+    height: 100%;
     max-width: 35vw;
     align-items: center;
     margin-left: 1.5%;
 }
 
 .container-img img{
-    max-height: 90%;
+    height: 80%;
+    width: auto;
     object-fit: contain;
 }
 

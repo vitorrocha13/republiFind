@@ -37,10 +37,20 @@
     width: 80%;
 }
 
-.container-label input {
+.container-label input,
+.container-label textarea {
     background-color: white;
     border-radius: 14px;
     padding-left: 20px;
+    font: inherit;
+}
+
+.container-label textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
 }
 
 .input-descricao {
@@ -51,6 +61,23 @@
     text-align: left;
     vertical-align: top;
     resize: vertical;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.container-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+    margin-top: 10px;
+}
+
+.container-checkbox input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
 }
 
 .container-texto h1 {

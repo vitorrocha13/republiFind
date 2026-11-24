@@ -115,8 +115,8 @@ Vitor Rocha Mininel
 ### Landing page
 ![Landing page](public/landing.png)
 
-### Cadastro de moradia
-![Cadastro de moradia](public/cadastroMoradia.png)
+### Cadastro
+![Cadastro de moradia](public/cadastro.png)
 
 ### Dashboard
 ![Dashboard](public/dashboard.png)
